@@ -1,0 +1,71 @@
+1. Navbar
+
+create and navbar with chakra UI add proper animation, 
+: here are the things that should be added
+1. nav links "home, about, contact, pricing, portfolio"
+2. fully responcive with mobile menu which should be more attractive and professenal
+3. logo and its title
+
+2. Footer
+create and footer with chakra UI add proper animation, 
+:here are the things that should be added
+1. add proper links and social icons with proper iconbtn and its animation 
+2. add newstaler section 
+3. add proper copywrite and right reseve
+4. make fully responcive and mobile freindly UI
+
+3. Hero section
+create and hero section with chakra UI add proper animation, 
+:here are the things that should be added
+1. add attractive heading that make user to contact our company
+2. add proper text in brife about compony
+3. call to action btn's
+4. make modern UI and take care of all SEO freindly html tags
+
+
+4. Pricing section
+create and pricing section with chakra UI add proper animation, 
+:here are the things that should be added
+1. pricing cards with full detail of package and what it include and not.
+2. add proper icons 
+3. make proper color template for cards to make more attractive 
+
+5. About section
+create and about section with chakra UI add proper animation, 
+:here are the things that should be added
+1. add proper description about company and what we doing
+2. add image media to demostrate our work
+3. add action btn to interect the user to reach user
+4. make fully responcive for all media devices
+
+6. Contact section
+create and contact section with chakra UI add proper animation, 
+:here are the things that should be added
+1. add contact form with following fileds ('name', 'phone', 'email', 'requirment', 'service')
+2. add formik and Yup validation and service should be and dropdown section
+3. add non editable input field that have pricing regard to service he/she choice
+4. make fully responcive and attractive colors
+5. add proper left icons for every input with proper match to that filed name.
+
+7. Portfolio section
+create and portfolio section with chakra UI add proper animation, 
+:here are the things that should be added
+1. add cards for with folloing details ('name of propject', 'details', 'componony', 'image', 'button')
+2. add proper color and icons 
+3. make fully responcive 
+4. add some text to know what server we have provided in past
+
+8. Who We Are section
+create and Who We Are section with chakra UI add proper animation, 
+:here are the things that should be added
+1. contain our strategys card
+2. our goal card
+3. our work card
+4. make fully responcive and make attractive.
+
+9. Service section
+create and service section with chakra UI add proper animation, 
+:here are the things that should be added
+1. create and service card which contain all detail about service 
+2. add proper styling to make fully responcive
+3. make attractive and modern look.
