@@ -69,3 +69,11 @@ create and service section with chakra UI add proper animation,
 1. create and service card which contain all detail about service 
 2. add proper styling to make fully responcive
 3. make attractive and modern look.
+
+10. Service Detail package
+create and service detail page with chakra UI add proper animation, 
+:here are the things that should be added
+1. craete and service over view where all details regarding to service
+2. in bottom there whould be and pricing cards which contains all Pricing
+3. add appropreate image and btn and icons
+4. make proper responce and all device competible

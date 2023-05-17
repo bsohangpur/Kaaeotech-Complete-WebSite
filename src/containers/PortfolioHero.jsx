@@ -11,6 +11,7 @@ const PortfolioHero = ({slice}) => {
       <Box mx="auto" px={{ base: "6", md: "0" }}>
         <Heading
           as="h2"
+          ml={12}
           fontSize={{ base: "3xl", md: "4xl" }}
           fontWeight="bold"
           mb={{ base: "6", md: "12" }}

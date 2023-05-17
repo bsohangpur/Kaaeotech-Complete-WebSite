@@ -4,7 +4,7 @@ import { ContactForm, ContactMap } from "../components";
 
 const ContactHero = () => {
   return (
-    <Box mx={8} id="contact" className=" flex flex-wrap justify-center items-center my-8">
+    <Box mx={{base:2,md:8}} id="contact" className=" flex flex-wrap justify-center items-center my-8">
       <ContactForm />
       <ContactMap />
     </Box>

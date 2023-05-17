@@ -7,6 +7,9 @@ import {Team, Management} from "./person";
 import aboutDetail from './aboutDetail';
 import testimonials from './testimonial';
 import serviceData from './serviceData';
+import privacyPolicy from './privacyPolicy';
+import faqData from './faqData';
+import serviceDetailData from './serviceDetailData'
 
 export {
   pricingData,
@@ -19,5 +22,8 @@ export {
   aboutDetail,
   testimonials,
   serviceData,
-  
+  privacyPolicy,
+  faqData,
+  serviceDetailData,
+
 };

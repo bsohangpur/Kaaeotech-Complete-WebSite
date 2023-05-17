@@ -39,7 +39,8 @@ const Hero = () => {
       bgImage={`url(${hero_bg})`}
       bgSize="cover"
       bgPosition="center"
-      h="100vh"
+      h='auto'
+      py={12}
       position="relative"
     >
       <Box
@@ -83,11 +84,16 @@ const Hero = () => {
             textShadow="1px 1px #000"
             zIndex={200}
           >
-            We are a leading provider of digital solutions that help businesses
-            grow and thrive in today's digital landscape. Our team of experts
-            specializes in web design, development, and digital marketing, and
-            we are committed to delivering high-quality, cost-effective
-            solutions that exceed our clients' expectations.
+            Looking to elevate your online presence and stand out in the digital
+            landscape? Our digital solutions company offers top-of-the-line
+            services for web development, web design, and graphic design.
+            Whether you're a small business looking to establish a strong online
+            presence or a large corporation seeking to revamp your website, we
+            have the expertise and skills to help you achieve your goals. From
+            eye-catching graphics and intuitive interfaces to seamless user
+            experiences, our team of professionals is dedicated to delivering
+            cutting-edge solutions that drive results. Partner with us and take
+            your digital presence to the next level.
           </Text>
           <motion.div
             variants={heroVariants}

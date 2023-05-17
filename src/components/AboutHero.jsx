@@ -27,7 +27,7 @@ const About = () => {
           transition={{ delay: 0.4 }}
           className="w-full md:w-1/2"
         >
-          <Box ml="10">
+          <Box ml={{md:"10"}}>
             <Text fontSize="2xl" fontWeight="bold" mb="4">
               About Us
             </Text>

@@ -19,7 +19,7 @@ const ContactMap = () => {
   };
 
   return (
-    <Box w={{ base: "100%", md: "50%" }} py={4} px={4}>
+    <Box w={{ base: "100%", md: "50%" }} py={4} px={2}>
       <motion.div variants={container} initial="hidden" animate="show">
         <motion.div variants={item}>
           <Box

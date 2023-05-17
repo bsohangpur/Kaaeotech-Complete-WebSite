@@ -1,7 +1,8 @@
-import { Box, Heading, Text, Image, Divider } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { aboutDetail } from "../data";
 import { CropText } from "../utils";
+import { Heading } from "../constants";
 const MotionBox = motion(Box);
 
 const Card = ({ detail }) => {
@@ -26,13 +27,7 @@ const Card = ({ detail }) => {
 const AboutWhoWeAre = () => {
   return (
     <Box>
-      <Box className=" flex items-center flex-col gap-2">
-        <Heading as="h3" size="lg">
-          Who We Are
-        </Heading>
-        <Divider w={150} />
-      </Box>
-
+      <Heading title='Who We Are'/>
       <Box className=" grid my-12 grid-cols-1 md:grid-cols-3 gap-2 mx-8 ">
         {aboutDetail.map((value) => (
           <Card key={value.title} detail={value} />

@@ -39,7 +39,7 @@ const ContactForm = () => {
 
   return (
     <Box w={{ base: "100%", md: "50%" }}>
-      <Box maxW="1200px" mx="auto" px={{ base: "6", md: "0" }}>
+      <Box maxW="1200px" mx="auto" px={{ base: "2", md: "0" }}>
         <Box
           bg="white"
           borderRadius="lg"

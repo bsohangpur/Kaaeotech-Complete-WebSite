@@ -8,6 +8,8 @@ import TeamCards from './TeamCards';
 import AboutWhoWeAre from './AboutWhoWeAre';
 import TestimonialCard from './TestimonialCard';
 import ServiceCard from './ServiceCard';
+import FAQCard from './FAQCard';    
+import SingleService from './SingleService';
 
 export{
     Hero,
@@ -20,6 +22,8 @@ export{
     AboutWhoWeAre,
     TestimonialCard,
     ServiceCard,
+    FAQCard,
+    SingleService,
     
 
 }

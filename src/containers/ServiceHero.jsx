@@ -11,7 +11,6 @@ const ServiceHero = () => {
       align="center"
       px={{ base: "6", md: "20" }}
       py="16"
-      minHeight="80vh"
     >
       <MotionBox
         maxW={{ base: "full", md: "50%" }}

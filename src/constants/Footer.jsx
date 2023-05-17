@@ -78,7 +78,7 @@ const Footer = () => {
               </motion.div>
             ))}
           </Flex>
-          <Flex gap={4} mt={4}>
+          <Flex gap={4} mt={4} flexWrap='wrap'>
             {menuItems.map((item) => (
               <motion.div key={item.label} variants={menuVariants}>
                 <Button

@@ -7,7 +7,7 @@ import pinemedical3 from "./pinemedical3.png";
 import rumanazainab from "./rumanazainab.png";
 import maarz from "./maarz.png";
 import Mohd_Moizuddin from './Mohd_Moizuddin.jpeg';
-import Irfan from './Irfan.jpeg';
+import Irfan from './Irfan.jpg';
 import Burhanuddin from './Burhanuddin.jpg';
 import Najeeb from './Najeeb.jpg';
 

@@ -31,13 +31,13 @@ export const Management = [
   {
     name: "Mr. Mohd Moizuddin",
     specialty: "Founder & MD of Company.",
-    bio: "Mr. Mohd Moizuddin is a Director of Pine Medical Centre LLp, who starts a Medical Centre to help the patients our city. He uses their greats skills and knowledge to build a business from nothing. He is probably the founder who comes most readily to mind with great efforts.",
+    bio: "Mr. Mohd Moizuddin is a Founder and MD, who starts a Kaaeotech Solutions to help the business our the city. He uses their greats skills and knowledge to build a business from nothing. He is probably the founder who comes most readily to mind with great efforts.",
     image: Mohd_Moizuddin,
   },
   {
     name: "Mr. Mohd Moinuddin",
-    specialty: "Adviser",
-    bio: "Mr. Mohd Moinuddin is Adviser of the Pine Medical Centre LLP. He is a person with a new idea is a crank until the idea succeeds. An idea is just an idea. When and how to execute that idea, He knows very well.",
+    specialty: "Co-Founder and CFO",
+    bio: "Mr. Mohd Moinuddin is Co-Founder and CFO. He is a person with a new idea is a crank until the idea succeeds. An idea is just an idea. When and how to execute that idea, He knows very well.",
     image: "",
   },
   {

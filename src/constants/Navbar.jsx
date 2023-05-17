@@ -87,7 +87,7 @@ const Navbar = () => {
           {menuButton}
 
           <Box
-            className=" pt-12 flex justify-center w-2/5 absolute top-0 left-0 h-screen"
+            className=" pt-12 flex justify-center w-3/5 fixed top-0 left-0 h-screen"
             bg={isMobile && "blackAlpha.700"}
             zIndex={isOpen || isMobile ? "overlay" : "hide"}
             onClick={() => setIsMobile(false)}

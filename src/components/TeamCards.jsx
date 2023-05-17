@@ -27,7 +27,7 @@ const TeamCards = ({ team }) => {
         bg={bg[colorMode]}
         color={color[colorMode]}
       >
-        <Image h={450} src={team.image} alt={team.name} />
+        <Image src={team.image} alt={team.name} />
         <Box p="6">
           <Heading textTransform="capitalize" as="h3" size="md">
             {team.name}
