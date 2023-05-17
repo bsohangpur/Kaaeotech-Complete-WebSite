@@ -1,19 +1,16 @@
-
-import { Box, Divider, Flex, Heading, Icon } from "@chakra-ui/react";
+import { Box, Flex, Icon } from "@chakra-ui/react";
 import { ServiceCard } from "../components";
 import { serviceData } from "../data";
+import { Heading } from "../constants";
 
 const ServiceDetail = () => {
   return (
     <Box my={12} id="services">
-      <Box className=" flex flex-col items-center gap-2">
-        <Heading as='h3' size='lg'>Our Services</Heading>
-      <Divider w={150}/>
-      </Box>
+      <Heading title="Our Services" />
       <Flex
         direction={{ base: "column", md: "row" }}
         justify="space-between"
-        flexWrap='wrap'
+        flexWrap="wrap"
         gap={4}
         px={{ base: "6", md: "20" }}
         py="10"

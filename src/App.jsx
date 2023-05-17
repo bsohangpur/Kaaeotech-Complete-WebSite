@@ -1,14 +1,33 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar, Footer } from "./constants";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { About, Contact, Home, Portfolio, PricingPage, Service, ServiceDetailPage } from "./pages";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import {
+  About,
+  Contact,
+  Home,
+  Portfolio,
+  PricingPage,
+  Service,
+  ServiceDetailPage,
+} from "./pages";
 import "./App.css";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 const App = () => {
   return (
     <ChakraProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

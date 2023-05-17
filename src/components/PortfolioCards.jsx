@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, Image, Button, Stack } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Stack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "../App.css";
 import { FreeMode, Thumbs } from "swiper";
+import {Image} from '@chakra-ui/image';
 
 const MotionBox = motion(Box);
 

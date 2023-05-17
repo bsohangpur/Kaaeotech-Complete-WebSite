@@ -44,7 +44,7 @@ const Hero = () => {
       position="relative"
     >
       <Box
-        bg="rgba(23, 20, 100, 0.4)"
+        bg="rgba(23, 20, 100, 0.7)"
         position="absolute"
         top={0}
         bottom={0}

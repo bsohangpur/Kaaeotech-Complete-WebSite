@@ -4,10 +4,10 @@ import {
   Text,
   useBreakpointValue,
   useColorMode,
-  Image,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import {CropText} from "../utils";
+import { CropText } from "../utils";
+import { Image } from "@chakra-ui/image";
 
 const TeamCards = ({ team }) => {
   const { colorMode } = useColorMode();
@@ -27,7 +27,7 @@ const TeamCards = ({ team }) => {
         bg={bg[colorMode]}
         color={color[colorMode]}
       >
-        <Image src={team.image} alt={team.name} />
+        <Image src={team.image} alt={team.name} fallbackSrc='https://via.placeholder.com/300x435' />
         <Box p="6">
           <Heading textTransform="capitalize" as="h3" size="md">
             {team.name}

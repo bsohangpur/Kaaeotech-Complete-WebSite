@@ -1,15 +1,18 @@
-import logo from "./logo-transparent.png";
-import hero_bg from "./hero_bg.jpg";
-import hero_image from "./hero_image.jpg";
-import pinemedical from "./pinemedical.png";
-import pinemedical2 from "./pinemedical2.png";
-import pinemedical3 from "./pinemedical3.png";
-import rumanazainab from "./rumanazainab.png";
-import maarz from "./maarz.png";
-import Mohd_Moizuddin from './Mohd_Moizuddin.jpeg';
-import Irfan from './Irfan.jpg';
-import Burhanuddin from './Burhanuddin.jpg';
-import Najeeb from './Najeeb.jpg';
+import logo from "./logo-transparent.webp";
+import hero_bg from "./hero_bg.webp";
+import hero_image from "./hero_image.webp";
+import pinemedical from "./pinemedical.webp";
+import pinemedical2 from "./pinemedical2.webp";
+import pinemedical3 from "./pinemedical3.webp";
+import rumanazainab from "./rumanazainab.webp";
+import maarz from "./maarz.webp";
+import Mohd_Moizuddin from "./Mohd_Moizuddin.webp";
+import Irfan from "./Irfan.webp";
+import Burhanuddin from "./Burhanuddin.webp";
+import Najeeb from "./Najeeb.webp";
+import works from "./works.webp";
+import goals from "./Goals.webp";
+import strategy from "./strategy.webp";
 
 export {
   logo,
@@ -24,5 +27,7 @@ export {
   Irfan,
   Burhanuddin,
   Najeeb,
-
+  works,
+  goals,
+  strategy,
 };

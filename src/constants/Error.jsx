@@ -1,6 +1,7 @@
-import { Box, Text, Button, Image } from "@chakra-ui/react";
+import { Box, Text, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {Image} from '@chakra-ui/image';
 
 const Error = ({ code, message, detail, path, image }) => {
   return (

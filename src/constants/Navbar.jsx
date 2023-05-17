@@ -10,13 +10,13 @@ import {
   HStack,
   VStack,
   useBreakpointValue,
-  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import { logo } from "../assets";
 import { menuItems } from "../data";
 import PreNavbar from "./PreNavbar";
+import {Image} from '@chakra-ui/image';
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -78,7 +78,7 @@ const Navbar = () => {
               fontSize={{ base: "xl", md: "2xl" }}
               color="teal.500"
             >
-              <Image h={{ base: 8, lg: 12 }} src={logo} />
+              <Image h={{ base: 8, lg: 12 }} alt="kaaeotech solutions logo" src={logo} />
             </Box>
           </Flex>
 

@@ -1,9 +1,10 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { aboutDetail } from "../data";
 import { CropText } from "../utils";
 import { Heading } from "../constants";
 const MotionBox = motion(Box);
+import {Image} from '@chakra-ui/image';
 
 const Card = ({ detail }) => {
   return (

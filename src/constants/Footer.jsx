@@ -3,13 +3,13 @@ import {
   Flex,
   Text,
   IconButton,
-  Link,
   Input,
   Button,
   useToast,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { menuItems, socialIcons } from "../data";
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   const toast = useToast();
@@ -88,7 +88,6 @@ const Footer = () => {
                   colorScheme="teal"
                   fontWeight="medium"
                   sx={{ textTransform: "uppercase" }}
-                  onClick={() => setIsMobile(false)}
                 >
                   {item.label}
                 </Button>

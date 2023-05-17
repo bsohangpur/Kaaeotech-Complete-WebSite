@@ -1,5 +1,6 @@
-import { Box, Flex, Image, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import {Image} from '@chakra-ui/image';
 
 const About = () => {
   const imageVariants = {
