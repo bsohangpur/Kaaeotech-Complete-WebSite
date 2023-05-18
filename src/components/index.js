@@ -10,6 +10,8 @@ import TestimonialCard from './TestimonialCard';
 import ServiceCard from './ServiceCard';
 import FAQCard from './FAQCard';    
 import SingleService from './SingleService';
+import BlogCard from './BlogCard';
+import SingleBlog from './SingleBlog';
 
 export{
     Hero,
@@ -24,6 +26,7 @@ export{
     ServiceCard,
     FAQCard,
     SingleService,
-    
+    BlogCard,
+    SingleBlog,
 
 }

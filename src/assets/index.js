@@ -13,6 +13,7 @@ import Najeeb from "./Najeeb.webp";
 import works from "./works.webp";
 import goals from "./Goals.webp";
 import strategy from "./strategy.webp";
+import _404 from './404.jpg'
 
 export {
   logo,
@@ -30,4 +31,6 @@ export {
   works,
   goals,
   strategy,
+  _404,
+  
 };

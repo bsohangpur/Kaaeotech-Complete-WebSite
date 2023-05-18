@@ -77,3 +77,11 @@ create and service detail page with chakra UI add proper animation,
 2. in bottom there whould be and pricing cards which contains all Pricing
 3. add appropreate image and btn and icons
 4. make proper responce and all device competible
+
+11. Blog Section 
+create and blog page with chakra UI add proper animation, 
+:here are the things that should be added
+1. create and blog page with title an brife intro
+2. its should contain blogs cards.
+3. all cards should have proper styling and reponcive for all devices
+4. make morden UI.

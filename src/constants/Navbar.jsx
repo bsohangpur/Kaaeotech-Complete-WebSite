@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { logo } from "../assets";
 import { menuItems } from "../data";
 import PreNavbar from "./PreNavbar";
-import {Image} from '@chakra-ui/image';
+import { Image } from "@chakra-ui/image";
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -78,7 +78,11 @@ const Navbar = () => {
               fontSize={{ base: "xl", md: "2xl" }}
               color="teal.500"
             >
-              <Image h={{ base: 8, lg: 12 }} alt="kaaeotech solutions logo" src={logo} />
+              <Image
+                h={{ base: 8, lg: 12 }}
+                alt="kaaeotech solutions logo"
+                src={logo}
+              />
             </Box>
           </Flex>
 
@@ -133,6 +137,7 @@ const Navbar = () => {
                 to={item.to}
                 key={item.label}
                 variant="outline"
+                size={{ md: "sm", lg: "md" }}
                 color="gray.500"
                 fontWeight="medium"
                 sx={{ textTransform: "uppercase" }}

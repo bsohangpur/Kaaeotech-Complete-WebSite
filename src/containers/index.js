@@ -7,6 +7,7 @@ import ServiceHero from "./ServiceHero";
 import ServiceDetail from "./ServiceDetail";
 import PrivacyPolicy from "./PrivacyPolicy";
 import FAQSection from './FAQSection';
+import BlogContainer from './BlogContainer';
 
 export {
   Pricing,
@@ -18,5 +19,7 @@ export {
   ServiceDetail,
   PrivacyPolicy,
   FAQSection,
+  BlogContainer,
+  
   
 };

@@ -4,7 +4,7 @@ export const Team = [
   {
     name: "Mr. M. A. Irfan",
     specialty: "Manager & HR",
-    bio: "",
+    bio: "M. A. Irfan is Manager & HR of our company his responsibilities are accomplishes department objectives by managing staff; planning and evaluating department activities. Maintains staff by recruiting, selecting, orienting, and training employees. Ensures a safe, secure, and legal work environment.",
     image: Irfan,
   },
   {

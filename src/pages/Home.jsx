@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
 import { AboutHero, Hero } from "../components";
-import { ContactHero, PortfolioHero, Pricing } from "../containers";
+import { ContactHero, PortfolioHero, Pricing, ServiceDetail } from "../containers";
 import { pricingData } from "../data";
 
 const Home = () => {
@@ -10,6 +10,7 @@ const Home = () => {
       <Hero />
       <Pricing slice={4} data={pricingData}/>
       <AboutHero />
+      <ServiceDetail/>
       <ContactHero />
       <PortfolioHero slice={3}/>
     </Box>

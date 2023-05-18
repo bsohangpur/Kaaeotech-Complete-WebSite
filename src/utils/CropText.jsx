@@ -5,13 +5,13 @@ const CropText = ({ text }) => {
     const [showMore, setShowMore] = useState(false);
     const words = text.split(" ");
 
-    const first100Words = words.slice(0, 30).join(" ");
+    const first30Words = words.slice(0, 30).join(" ");
     const remainingWords = words.slice(30).join(" ");
 
     return (
         <div>
             <Text>
-                {showMore ? `${first100Words} ${remainingWords}` : first100Words}
+                {showMore ? `${first30Words} ${remainingWords}` : first30Words}
             </Text>
             {words.length > 30 && (
                 <button
