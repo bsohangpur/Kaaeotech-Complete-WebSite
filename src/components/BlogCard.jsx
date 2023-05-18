@@ -1,11 +1,19 @@
 import { Box, Heading, Text, Image, Badge } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const MotionBox = motion(Box);
 
-const BlogCard = () => {
+const BlogCard = ({ data }) => {
+  const { link, image, title, categories, text, tags } = data;
+
+  const words = text.split(" ");
+  const first30Words = words.splice(0, 30).join(" ")
+
   return (
     <MotionBox
+      as={Link}
+      to={link}
       bg="white"
       boxShadow="md"
       p={8}
@@ -19,31 +27,25 @@ const BlogCard = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <Image
-          src="https://via.placeholder.com/300x180"
-          alt="Blog Post Image"
-          mb={4}
-          borderRadius="md"
-        />
+        <Image src={image} alt={title} mb={4} borderRadius="md" />
         <Heading as="h2" size="md" mb={2} fontWeight="bold">
-          Blog Post Title
+          {title}
         </Heading>
-        <Badge colorScheme="purple" mb={2}>
-          Category
-        </Badge>
+        {categories.map((category, index) => (
+          <Badge key={category + index} colorScheme="purple" mb={2}>
+            {category}
+          </Badge>
+        ))}
+
         <Text fontSize="lg" mb={4}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, ullam?
+          {first30Words}.
         </Text>
         <Box d="flex" justifyContent="flex-end">
-          <Badge colorScheme="green" mr={2}>
-            Tag 1
-          </Badge>
-          <Badge colorScheme="green" mr={2}>
-            Tag 2
-          </Badge>
-          <Badge colorScheme="green" mr={2}>
-            Tag 3
-          </Badge>
+          {tags.map((tag, index) => (
+            <Badge key={tag + index} colorScheme="green" mr={2}>
+              {tag}
+            </Badge>
+          ))}
         </Box>
       </motion.div>
     </MotionBox>
