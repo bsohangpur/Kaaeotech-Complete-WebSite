@@ -10,7 +10,7 @@ const Home = () => {
       <Hero />
       <Pricing slice={4} data={pricingData}/>
       <AboutHero />
-      <ServiceDetail/>
+      <ServiceDetail link='service'/>
       <ContactHero />
       <PortfolioHero slice={3}/>
     </Box>

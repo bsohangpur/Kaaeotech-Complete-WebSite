@@ -15,6 +15,7 @@ import {
 } from "./pages";
 import "./App.css";
 import { _404 } from "./assets";
+import { WhatsappBtn } from "./utils";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -32,6 +33,7 @@ const App = () => {
       <BrowserRouter>
         <ScrollToTop />
         <Navbar />
+        <WhatsappBtn />
         <Routes>
           <Route exect path="/" element={<Home />} />
           <Route exect path="/about" element={<About />} />
@@ -45,11 +47,7 @@ const App = () => {
             element={<ServiceDetailPage />}
           />
           <Route exect path="/blog" element={<Blog />} />
-          <Route
-            exect
-            path="/blog/:blog"
-            element={<BlogDetail />}
-          />
+          <Route exect path="/blog/:blog" element={<BlogDetail />} />
           <Route
             exect
             path="*"

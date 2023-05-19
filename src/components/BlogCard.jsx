@@ -1,19 +1,16 @@
-import { Box, Heading, Text, Image, Badge } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Badge, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const MotionBox = motion(Box);
 
 const BlogCard = ({ data }) => {
-  const { link, image, title, categories, text, tags } = data;
-
-  const words = text.split(" ");
-  const first30Words = words.splice(0, 30).join(" ")
+  const { link, image, title, categories, text, tags, summary } = data;
 
   return (
     <MotionBox
       as={Link}
-      to={link}
+      to={title}
       bg="white"
       boxShadow="md"
       p={8}
@@ -31,14 +28,16 @@ const BlogCard = ({ data }) => {
         <Heading as="h2" size="md" mb={2} fontWeight="bold">
           {title}
         </Heading>
+        <Flex flexWrap='wrap' gap={2} mb={2}>
         {categories.map((category, index) => (
-          <Badge key={category + index} colorScheme="purple" mb={2}>
+          <Badge key={category + index} colorScheme="purple">
             {category}
           </Badge>
         ))}
+        </Flex>
 
         <Text fontSize="lg" mb={4}>
-          {first30Words}.
+          {summary}.
         </Text>
         <Box d="flex" justifyContent="flex-end">
           {tags.map((tag, index) => (

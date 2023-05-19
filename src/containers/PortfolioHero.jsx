@@ -20,7 +20,7 @@ const PortfolioHero = ({slice}) => {
         </Heading>
         <Box>
           <MotionBox
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}

@@ -81,14 +81,15 @@ const PortfolioCards = ({ project }) => {
         px="4"
         py="2"
         zIndex={100}
+        textTransform='capitalize'
       >
         {project.company}
       </Box>
       <Box p="6">
-        <Heading as="h3" fontSize="xl" mb="4">
+        <Heading as="h3" textTransform='capitalize' fontSize="xl" mb="4">
           {project.name}
         </Heading>
-        <Text mb="4">{project.details}</Text>
+        <Text textTransform='capitalize' mb="4">{project.details}</Text>
         <Stack
           direction={{ base: "column", md: "row" }}
           spacing="4"

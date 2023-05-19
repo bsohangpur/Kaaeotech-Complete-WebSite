@@ -4,15 +4,17 @@ import {
   Text,
   IconButton,
   Input,
+  Link as link,
   Button,
   useToast,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { menuItems, socialIcons } from "../data";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const toast = useToast();
+  const MotionLink = motion(link);
 
   const menuVariants = {
     hidden: {
@@ -60,25 +62,25 @@ const Footer = () => {
           </Text>
           <Flex gap={2}>
             {socialIcons.map(({ icon: Icon, href, colorScheme }) => (
-              <motion.div
+              <MotionLink
+                href={href}
+                target='_blank'
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
                 key={href}
-                mr={4}
+                mr={2}
                 _last={{ mr: 0 }}
               >
                 <IconButton
-                  as={Link}
-                  href={href}
                   aria-label={href}
                   icon={<Icon fontSize="1.5em" />}
                   variant="outline"
                   colorScheme={colorScheme}
                 />
-              </motion.div>
+              </MotionLink>
             ))}
           </Flex>
-          <Flex gap={4} mt={4} flexWrap='wrap'>
+          <Flex gap={4} mt={4} flexWrap="wrap">
             {menuItems.map((item) => (
               <motion.div key={item.label} variants={menuVariants}>
                 <Button

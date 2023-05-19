@@ -35,4 +35,15 @@
     opacity: 1;
   }
   
-  
+  .sanitizedContent h1{
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  .sanitizedContent img{
+    margin: 10px 0px;
+  }
+
+  .sanitizedContent p{
+    font-size: 1.1em;
+  }

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const MotionBox = motion(Box);
 
-const ServiceCard = ({ icon, title, description }) => {
+const ServiceCard = ({ icon, title, description, link }) => {
   const navigation = useNavigate();
 
   return (
@@ -27,7 +27,8 @@ const ServiceCard = ({ icon, title, description }) => {
       </Flex>
       <Text minH={48}>{description}</Text>
       <Button
-        onClick={()=>navigation(title)}
+        as={Link}
+        to={`/service/${title}`}
         className="mt-4"
         colorScheme="blackAlpha"
         rightIcon={<FaArrowRight />}

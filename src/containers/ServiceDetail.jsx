@@ -3,7 +3,7 @@ import { ServiceCard } from "../components";
 import { serviceData } from "../data";
 import { Heading } from "../constants";
 
-const ServiceDetail = () => {
+const ServiceDetail = ({ link }) => {
   return (
     <Box my={12} id="services">
       <Heading title="Our Services" />
@@ -23,6 +23,7 @@ const ServiceDetail = () => {
             }
             title={data.title}
             description={data.description}
+            link={link}
           />
         ))}
       </Flex>

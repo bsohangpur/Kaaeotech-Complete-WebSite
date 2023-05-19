@@ -9,7 +9,8 @@ import testimonials from './testimonial';
 import serviceData from './serviceData';
 import privacyPolicy from './privacyPolicy';
 import faqData from './faqData';
-import serviceDetailData from './serviceDetailData'
+import serviceDetailData from './serviceDetailData';
+import blogData from './blogData';
 
 export {
   pricingData,
@@ -25,5 +26,7 @@ export {
   privacyPolicy,
   faqData,
   serviceDetailData,
+  blogData,
+  
 
 };
