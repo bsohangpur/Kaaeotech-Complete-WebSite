@@ -63,8 +63,8 @@ const PortfolioCards = ({ project }) => {
         {project.images.map((image) => (
           <SwiperSlide key={image}>
             <Image
-              src={image}
-              alt={image}
+              src={image.image}
+              alt={image.name}
               objectFit="cover"
               h="full"
               w="full"

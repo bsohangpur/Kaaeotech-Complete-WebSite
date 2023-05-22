@@ -1,4 +1,4 @@
-import { Box, Flex, Stack, useMediaQuery, } from "@chakra-ui/react";
+import { Box, Flex, Stack, useMediaQuery } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { PricingCard } from "../components";
 
@@ -33,21 +33,21 @@ const pricingVariants = {
 const MobilePricing = ({ slice, data }) => {
   return (
     <Swiper
-        grabCursor={true}
-        effect={"creative"}
-        creativeEffect={{
-          prev: {
-            shadow: true,
-            translate: [0, 0, -400],
-          },
-          next: {
-            translate: ["100%", 0, 0],
-          },
-        }}
-        autoplay={{ delay: 3000 }}
-        modules={[EffectCreative, Autoplay]}
-        className="mySwiper"
-      >
+      grabCursor={true}
+      effect={"creative"}
+      creativeEffect={{
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ["100%", 0, 0],
+        },
+      }}
+      autoplay={{ delay: 3000 }}
+      modules={[EffectCreative, Autoplay]}
+      className="mySwiper"
+    >
       {data
         .slice(0, slice)
         .map(({ title, price, features, isPopular, ourPrice }) => (
@@ -80,28 +80,29 @@ const Pricing = ({ slice, data }) => {
     <Box id="pricing" py={4}>
       <Flex justify="center">
         {isMobileView ? (
-          <MobilePricing data={data} slice={slice} />
+          <MobilePricing data={data && data} slice={data && slice} />
         ) : (
           <Stack direction={{ base: "column", md: "row" }} spacing={8}>
-            {data
-              .slice(0, slice)
-              .map(({ title, price, features, isPopular, ourPrice }) => (
-                <motion.div
-                  key={title}
-                  variants={pricingVariants}
-                  initial="hidden"
-                  animate="visible"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <PricingCard
-                    title={title}
-                    price={price}
-                    features={features}
-                    isPopular={isPopular}
-                    ourPrice={ourPrice}
-                  />
-                </motion.div>
-              ))}
+            {data &&
+              data
+                .slice(0, slice)
+                .map(({ title, price, features, isPopular, our_price }) => (
+                  <motion.div
+                    key={title}
+                    variants={pricingVariants}
+                    initial="hidden"
+                    animate="visible"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <PricingCard
+                      title={title}
+                      price={Number(price)}
+                      features={features}
+                      isPopular={isPopular}
+                      ourPrice={Number(our_price)}
+                    />
+                  </motion.div>
+                ))}
           </Stack>
         )}
       </Flex>

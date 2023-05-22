@@ -1,13 +1,14 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { PortfolioCards } from "../components";
-import { projects } from "../data";
+import { useSelector } from "react-redux";
 
-const PortfolioHero = ({slice}) => {
+const PortfolioHero = ({ slice }) => {
   const MotionBox = motion(Box);
+  const { portfolio } = useSelector((state) => state.portfolio);
 
   return (
-    <Box  id="portfolio" bg="gray.100" py={{ base: "10", md: "20" }}>
+    <Box id="portfolio" bg="gray.100" py={{ base: "10", md: "20" }}>
       <Box mx="auto" px={{ base: "6", md: "0" }}>
         <Heading
           as="h2"
@@ -25,9 +26,12 @@ const PortfolioHero = ({slice}) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {projects.slice(0,slice).map((project) => (
-              <PortfolioCards key={project.name} project={project} />
-            ))}
+            {portfolio &&
+              portfolio
+                .slice(0, slice)
+                .map((project) => (
+                  <PortfolioCards key={project.name} project={project} />
+                ))}
           </MotionBox>
         </Box>
       </Box>

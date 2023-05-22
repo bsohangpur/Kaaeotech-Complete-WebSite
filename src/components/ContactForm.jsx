@@ -1,13 +1,30 @@
-import { Box, Text, Input, Textarea, Select, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Input,
+  Textarea,
+  Select,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
 import { serviceOptions } from "../data";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { SendData } from "../redux/slices/contactSlice";
 
 const ContactForm = () => {
-  const [pricing, setPricing] = useState("₹");
+  const [pricing, setPricing] = useState(0);
+  const [submit, setSubmit] = useState(false);
+  const toast = useToast();
+  const navigation = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.contact);
 
-  const handleServiceChange = (event) => {
+
+  const handlePlanChange = (event) => {
     const selectedOption = serviceOptions.find(
       (option) => option.value === event.target.value
     );
@@ -19,23 +36,45 @@ const ContactForm = () => {
     phone: "",
     email: "",
     requirement: "",
-    service: "",
+    plan: "",
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required("name is required"),
     phone: Yup.string().required("phone number is required"),
-    email: Yup.string().email("Invalid email").required("email address is required"),
+    email: Yup.string()
+      .email("Invalid email")
+      .required("email address is required"),
     requirement: Yup.string().required("required"),
-    service: Yup.string().notOneOf([""], "Required"),
+    plan: Yup.string().notOneOf([""], "Required"),
   });
 
   const onSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 400);
+    const data = {
+      name: values.name,
+      phone: values.phone,
+      email: values.email,
+      requirement: values.requirement,
+      price: pricing,
+      plan: values.plan,
+    };
+    dispatch(SendData(data));
+    setSubmitting(false);
+    setSubmit(true);
   };
+
+  if (!isLoading) {
+    toast({
+      title: "Message Submited",
+      position: "top",
+      description:
+        "your responce has submited successfully we will contact you soon",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+    setTimeout(()=>navigation(0), 1000);
+  }
 
   return (
     <Box w={{ base: "100%", md: "50%" }}>
@@ -119,21 +158,19 @@ const ContactForm = () => {
                       </Box>
                     )}
                   </Field>
-                  <Field name="service">
+                  <Field name="plan">
                     {({ field, form }) => (
                       <Box mb="4">
                         <Text mb="2" fontWeight="semibold">
-                          Service
+                          Plan
                         </Text>
                         <Select
-                          placeholder="Select a service"
+                          placeholder="Select a plan"
                           {...field}
-                          isInvalid={
-                            form.errors.service && form.touched.service
-                          }
+                          isInvalid={form.errors.plan && form.touched.plan}
                           onChange={(event) => {
                             field.onChange(event);
-                            handleServiceChange(event);
+                            handlePlanChange(event);
                           }}
                         >
                           {serviceOptions.map((option) => (
@@ -143,7 +180,7 @@ const ContactForm = () => {
                           ))}
                         </Select>
                         <ErrorMessage
-                          name="service"
+                          name="plan"
                           component={Text}
                           mt="2"
                           color="red.500"
@@ -177,7 +214,7 @@ const ContactForm = () => {
                     <Text mb="2" fontWeight="semibold">
                       Price
                     </Text>
-                    <Input type="text" value={pricing} isReadOnly />
+                    <Input type="text" value={`₹${pricing}`} isReadOnly />
                   </Box>
                 </Box>
                 <Button
@@ -188,6 +225,7 @@ const ContactForm = () => {
                   px="10"
                   py="4"
                   mt="4"
+                  isDisabled={submit}
                   borderRadius="lg"
                   _hover={{ bg: "green.600" }}
                 >

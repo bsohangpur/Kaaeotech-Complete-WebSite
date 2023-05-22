@@ -1,11 +1,8 @@
 const serviceOptions = [
-  { price: "₹1500", value: "Web Development", label: "Web Development" },
-  {
-    price: "₹4500",
-    value: "Mobile App Development",
-    label: "Mobile App Development",
-  },
-  { price: "₹8500", value: "UI/UX Design", label: "UI/UX Design" },
+  { price: 1999, label: "BASIC PACKAGE", value: "BASIC PACKAGE" },
+  { price: 4999, label: "DELUXE PACKAGE", value: "DELUXE PACKAGE" },
+  { price: 7999, label: "STANDARD PACKAGE", value: "STANDARD PACKAGE" },
+  { price: 14999, label: "UNLIMITED PACKAGE", value: "UNLIMITED PACKAGE" },
 ];
 
 export default serviceOptions;

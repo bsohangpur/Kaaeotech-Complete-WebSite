@@ -91,7 +91,7 @@ const Navbar = () => {
           {menuButton}
 
           <Box
-            className=" pt-12 flex justify-center w-3/5 fixed top-0 left-0 h-screen"
+            className=" pt-12 flex justify-center w-[50%] fixed top-0 left-0 h-screen"
             bg={isMobile && "blackAlpha.700"}
             zIndex={isOpen || isMobile ? "overlay" : "hide"}
             onClick={() => setIsMobile(false)}
@@ -117,7 +117,9 @@ const Navbar = () => {
                       as={Link}
                       to={item.to}
                       variant="ghost"
-                      color="gray.200"
+                      size='lg'
+                      colorScheme="whiteAlpha"
+                      color="gray.50"
                       fontWeight="medium"
                       sx={{ textTransform: "uppercase" }}
                       onClick={() => setIsMobile(false)}

@@ -11,6 +11,7 @@ import privacyPolicy from './privacyPolicy';
 import faqData from './faqData';
 import serviceDetailData from './serviceDetailData';
 import blogData from './blogData';
+import icons from './icons'
 
 export {
   pricingData,
@@ -27,6 +28,7 @@ export {
   faqData,
   serviceDetailData,
   blogData,
+  icons,
   
 
 };
