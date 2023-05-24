@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, Button, Stack } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Stack, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,7 +8,8 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "../App.css";
 import { FreeMode, Thumbs } from "swiper";
-import {Image} from '@chakra-ui/image';
+import { Image } from "@chakra-ui/image";
+import imageurl from "../utils/imageurl";
 
 const MotionBox = motion(Box);
 
@@ -21,7 +22,7 @@ const PortfolioCards = ({ project }) => {
       position="relative"
       bg="white"
       h="100%"
-      w={{base:'100%',md:'45%', lg:'30%'}}
+      w={{ base: "100%", md: "45%", lg: "30%" }}
       borderRadius="md"
       boxShadow="lg"
       whileHover={{ scale: 1.05 }}
@@ -42,8 +43,8 @@ const PortfolioCards = ({ project }) => {
         {project.images.map((image) => (
           <SwiperSlide key={image}>
             <Image
-              src={image}
-              alt={image}
+              src={imageurl + image.image}
+              alt={image.name}
               objectFit="cover"
               h="full"
               w="full"
@@ -63,7 +64,7 @@ const PortfolioCards = ({ project }) => {
         {project.images.map((image) => (
           <SwiperSlide key={image}>
             <Image
-              src={image.image}
+              src={imageurl + image.image}
               alt={image.name}
               objectFit="cover"
               h="full"
@@ -81,21 +82,31 @@ const PortfolioCards = ({ project }) => {
         px="4"
         py="2"
         zIndex={100}
-        textTransform='capitalize'
+        textTransform="capitalize"
       >
         {project.company}
       </Box>
       <Box p="6">
-        <Heading as="h3" textTransform='capitalize' fontSize="xl" mb="4">
+        <Heading as="h3" textTransform="capitalize" fontSize="xl" mb="4">
           {project.name}
         </Heading>
-        <Text textTransform='capitalize' mb="4">{project.details}</Text>
+        <Text textTransform="capitalize" mb="4">
+          {project.details}
+        </Text>
         <Stack
           direction={{ base: "column", md: "row" }}
           spacing="4"
           justify="center"
         >
-          <Button colorScheme="green" size="sm" borderRadius="full" px="4">
+          <Button
+            as={Link}
+            href={project.url}
+            target="_blank"
+            colorScheme="green"
+            size="sm"
+            borderRadius="full"
+            px="4"
+          >
             View Project
           </Button>
         </Stack>

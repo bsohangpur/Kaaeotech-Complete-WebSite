@@ -6,25 +6,30 @@ import {
   Image,
   Text,
   VStack,
-  HStack,
-  Avatar,
-  Button,
-  Input,
-  Textarea,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
-import {SanitizedTextView} from '../utils';
-
-// const WordSplitter = (text, start, end) => {
-//   const words = text.split(" ");
-//   const content = words.slice(start, end).join(" ");
-//   return `${content}.`;
-// };
+import { SanitizedTextView } from "../utils";
+import imageurl from "../utils/imageurl";
+import { useDispatch, useSelector } from "react-redux";
+import CommentForm from "./CommentForm";
+import { useEffect } from "react";
+import { GetCommentData } from "../redux/slices/commentSlice";
+import Comment from "./Comment";
 
 const SingleBlog = ({ blog, similarBlogs }) => {
   const MotionBox = motion(Box);
+  const { id, title, image, text } = blog && blog;
+  const { comment } = useSelector((state) => state.comment);
+  const dispatch = useDispatch();
+
+  const blog_id = id !== undefined ? id : null;
+
+  useEffect(() => {
+    if (blog_id) {
+      dispatch(GetCommentData(blog_id));
+    }
+  }, [blog_id]);
 
   return (
     <Flex justify="center" align="center" minHeight="100vh" overflow="hidden">
@@ -41,25 +46,21 @@ const SingleBlog = ({ blog, similarBlogs }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <SanitizedTextView content={blog.text}/>
+            <Heading as="h1">{title}</Heading>
+            <Image my={4} src={imageurl + image} alt={title} />
+            <SanitizedTextView content={text} />
           </MotionBox>
           <MotionBox
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            w='100%'
+            w="100%"
           >
             <Text fontSize="2xl" fontWeight="bold" mb={4}>
               Comments
             </Text>
-            <Box mb={10}>
-              <Textarea placeholder="Enter your comment" mb={4} />
-              <HStack>
-                <Avatar as={FaUserCircle} size="md" mr={2} />
-                <Input placeholder="Your name" w="100%" mr={2} />
-                <Button colorScheme="purple">Comment</Button>
-              </HStack>
-            </Box>
+            <CommentForm id={blog_id} />
+            <Comment comments={comment} />
           </MotionBox>
         </VStack>
         <VStack spacing={8} align="flex-start">

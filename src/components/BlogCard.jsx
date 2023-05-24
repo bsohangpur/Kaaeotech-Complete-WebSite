@@ -1,16 +1,16 @@
-import { Box, Heading, Text, Image, Badge, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Badge, Flex, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import imageurl from "../utils/imageurl";
 
 const MotionBox = motion(Box);
 
 const BlogCard = ({ data }) => {
-  const { link, image, title, categories, text, tags, summary } = data;
+  const { image, title, categories, tags, summary } = data;
 
   return (
     <MotionBox
       as={Link}
-      to={title}
+      href={`blog/${title}`}
       bg="white"
       boxShadow="md"
       p={8}
@@ -24,25 +24,25 @@ const BlogCard = ({ data }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <Image src={image} alt={title} mb={4} borderRadius="md" />
+        <Image src={imageurl + image} alt={title} mb={4} borderRadius="md" />
         <Heading as="h2" size="md" mb={2} fontWeight="bold">
           {title}
         </Heading>
-        <Flex flexWrap='wrap' gap={2} mb={2}>
-        {categories.map((category, index) => (
-          <Badge key={category + index} colorScheme="purple">
-            {category}
-          </Badge>
-        ))}
+        <Flex flexWrap="wrap" gap={2} mb={2}>
+          {categories.map((category) => (
+            <Badge key={category.id} colorScheme="purple">
+              {category.name}
+            </Badge>
+          ))}
         </Flex>
 
         <Text fontSize="lg" mb={4}>
           {summary}.
         </Text>
         <Box d="flex" justifyContent="flex-end">
-          {tags.map((tag, index) => (
-            <Badge key={tag + index} colorScheme="green" mr={2}>
-              {tag}
+          {tags.map((tag) => (
+            <Badge key={tag.id} colorScheme="green" mr={2}>
+              {tag.name}
             </Badge>
           ))}
         </Box>

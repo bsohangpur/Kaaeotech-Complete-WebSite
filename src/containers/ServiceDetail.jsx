@@ -24,7 +24,7 @@ const ServiceDetail = ({ link,service }) => {
             return (
               <ServiceCard
                 key={data.title}
-                icon={<Icon as={icon.icon} boxSize="10" color={icon.color} />}
+                icon={icon && <Icon as={icon.icon} boxSize="10" color={icon.color} />}
                 title={data.title}
                 description={data.description}
                 link={link}

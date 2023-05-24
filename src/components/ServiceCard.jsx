@@ -1,13 +1,10 @@
-import { Box, Flex, Heading, Button, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Button, Text, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
 
 const MotionBox = motion(Box);
 
-const ServiceCard = ({ icon, title, description, link }) => {
-  const navigation = useNavigate();
-
+const ServiceCard = ({ icon, title, description }) => {
   return (
     <MotionBox
       bg="white"
@@ -28,7 +25,7 @@ const ServiceCard = ({ icon, title, description, link }) => {
       <Text minH={48}>{description}</Text>
       <Button
         as={Link}
-        to={`/service/${title}`}
+        href={`/service/${title}`}
         className="mt-4"
         colorScheme="blackAlpha"
         rightIcon={<FaArrowRight />}

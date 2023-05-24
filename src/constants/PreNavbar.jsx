@@ -2,6 +2,7 @@ import { Flex, Button, Link } from "@chakra-ui/react";
 import { FaPhone, FaEnvelope } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { motion } from "framer-motion";
+import {Link as link} from 'react-router-dom'
 
 const MotionButton = motion(Button);
 
@@ -49,16 +50,15 @@ const PreNavbar = () => {
         kaaeotechsolutions@gmail.com
       </MotionButton>
       <MotionButton
-        as={Link}
+        as={link}
         variants={iconVariants}
         whileHover="hover"
         leftIcon={<BiWorld />}
         colorScheme="linkedin"
         variant="link"
-        target="_blank"
-        href="https://www.hostinger.in/domain-name-search"
+        to="/career"
       >
-        Book your domain
+        We Are Hiring
       </MotionButton>
     </Flex>
   );

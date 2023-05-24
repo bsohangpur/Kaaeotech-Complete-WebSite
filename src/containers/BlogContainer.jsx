@@ -3,7 +3,7 @@ import { BlogCard } from "../components";
 import { Heading } from "../constants";
 import { blogData } from "../data";
 
-const BlogContainer = () => {
+const BlogContainer = ({blogs}) => {
   const gridCols = useBreakpointValue({ base: 1, md: 3 });
 
   return (
@@ -14,7 +14,7 @@ const BlogContainer = () => {
         variety of topics.
       </Text>
       <Grid templateColumns={`repeat(${gridCols}, 1fr)`} gap={10}>
-        {blogData.map((blog) => (
+        {blogs.map((blog) => (
           <BlogCard data={blog} />
         ))}
       </Grid>

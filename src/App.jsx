@@ -12,6 +12,7 @@ import {
   ServiceDetailPage,
   Blog,
   BlogDetail,
+  Career,
 } from "./pages";
 import "./App.css";
 import { _404 } from "./assets";
@@ -68,6 +69,7 @@ const App = () => {
           />
           <Route exect path="/blog" element={<Blog />} />
           <Route exect path="/blog/:blog" element={<BlogDetail />} />
+          <Route exect path="/career" element={<Career />} />
           <Route
             exect
             path="*"

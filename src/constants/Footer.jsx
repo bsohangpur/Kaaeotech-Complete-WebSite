@@ -64,7 +64,7 @@ const Footer = () => {
             {socialIcons.map(({ icon: Icon, href, colorScheme }) => (
               <MotionLink
                 href={href}
-                target='_blank'
+                target="_blank"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
                 key={href}
@@ -95,6 +95,18 @@ const Footer = () => {
                 </Button>
               </motion.div>
             ))}
+            <motion.div variants={menuVariants}>
+              <Button
+                as={Link}
+                to="/career"
+                variant="link"
+                colorScheme="teal"
+                fontWeight="medium"
+                sx={{ textTransform: "uppercase" }}
+              >
+                career
+              </Button>
+            </motion.div>
           </Flex>
         </Box>
         <Box mt={{ base: 8, md: 0 }}>

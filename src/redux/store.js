@@ -6,6 +6,7 @@ import teamSlice from "./slices/teamSlice";
 import serviceSlice from "./slices/serviceSlice";
 import blogSlice from "./slices/blogSlice";
 import commentSlice from "./slices/commentSlice";
+import careerSlice from "./slices/careerSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     service:serviceSlice,
     blog:blogSlice,
     comment:commentSlice,
+    career:careerSlice,
 
   },
 });

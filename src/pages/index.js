@@ -7,6 +7,7 @@ import Service from "./Service";
 import ServiceDetailPage from "./ServiceDetailPage";
 import Blog from "./Blog";
 import BlogDetail from "./BlogDetail";
+import Career from './Career'
 
 export {
   Home,
@@ -18,5 +19,6 @@ export {
   ServiceDetailPage,
   Blog,
   BlogDetail,
+  Career,
   
 };

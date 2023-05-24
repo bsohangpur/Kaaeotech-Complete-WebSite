@@ -1,9 +1,11 @@
 import { Box, Text, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Pricing } from "../containers";
+import imageurl from '../utils/imageurl';
 
 
 const SingleService = ({ image, title, description, data }) => {
+
   return (
     <Box>
       <motion.div
@@ -12,7 +14,7 @@ const SingleService = ({ image, title, description, data }) => {
         transition={{ duration: 1 }}
       >
         <Box
-          bgImage={`url(${image})`}
+          bgImage={`url(${imageurl + image})`}
           className="w-full bg-slate-300 h-[70vh]"
           bgSize="cover"
           bgRepeat="no-repeat"

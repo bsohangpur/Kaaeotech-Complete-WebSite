@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "https://api.kaaeo.com/api/testimonials/";
+const url = "https://api.kaaeo.com/api/careers/";
 
 const STATUS = Object.freeze({
   idle: "idle",
@@ -9,12 +9,11 @@ const STATUS = Object.freeze({
   error: "error",
 });
 
-const testimonialSlice = createSlice({
-  name: "testimonial",
+const careerSlice = createSlice({
+  name: "career",
   initialState: {
     status: STATUS.loading,
     isLoading: true,
-    testimonial: [],
   },
   reducers: {
     setStatus: (state, action) => {
@@ -23,18 +22,14 @@ const testimonialSlice = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
-    setData: (state, action) => {
-      state.testimonial = action.payload;
-    },
   },
 });
 
-export function GetTestimonialData() {
+export function SendData(data) {
   return async function getData(dispatch) {
     try {
       dispatch(setStatus(STATUS.loading));
-      const res = await axios.get(url);
-      dispatch(setData(res.data));
+      await axios.post(url, data);
       dispatch(setLoading(false));
       dispatch(setStatus(STATUS.idle));
     } catch (e) {
@@ -44,5 +39,5 @@ export function GetTestimonialData() {
   };
 }
 
-export const { setStatus, setLoading, setData } = testimonialSlice.actions;
-export default testimonialSlice.reducer;
+export const { setStatus, setLoading } = careerSlice.actions;
+export default careerSlice.reducer;

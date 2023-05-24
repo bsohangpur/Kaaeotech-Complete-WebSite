@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "http://127.0.0.1:8000/api/services/";
+const url = "https://api.kaaeo.com/api/services/";
 
 const STATUS = Object.freeze({
   idle: "idle",
@@ -14,7 +14,8 @@ const serviceSlice = createSlice({
   initialState: {
     status: STATUS.loading,
     isLoading: true,
-    service: [],
+    services: [],
+    service: undefined,
   },
   reducers: {
     setStatus: (state, action) => {
@@ -22,6 +23,9 @@ const serviceSlice = createSlice({
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload;
+    },
+    setAllData: (state, action) => {
+      state.services = action.payload;
     },
     setData: (state, action) => {
       state.service = action.payload;
@@ -34,7 +38,7 @@ export function GetServiceData() {
     try {
       dispatch(setStatus(STATUS.loading));
       const res = await axios.get(url);
-      dispatch(setData(res.data));
+      dispatch(setAllData(res.data));
       dispatch(setLoading(false));
       dispatch(setStatus(STATUS.idle));
     } catch (e) {
@@ -44,5 +48,23 @@ export function GetServiceData() {
   };
 }
 
-export const { setStatus, setLoading, setData } = serviceSlice.actions;
+export function GetSingleServiceData(title) {
+  return async function getSingleData(dispatch) {
+    try {
+      dispatch(setStatus(STATUS.loading));
+      const res = await axios.get(`${url}?title=${title}`);
+      console.log(`${url}?title=${title}`)
+      dispatch(setData(res.data));
+      dispatch(setLoading(false));
+      dispatch(setStatus(STATUS.idle));
+    } catch (e) {
+      console.log(e);
+      dispatch(setData([]));
+      dispatch(setStatus(STATUS.error));
+    }
+  };
+}
+
+export const { setStatus, setLoading, setData, setAllData } =
+  serviceSlice.actions;
 export default serviceSlice.reducer;
