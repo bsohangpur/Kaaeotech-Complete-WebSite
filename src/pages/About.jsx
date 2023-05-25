@@ -9,13 +9,17 @@ import { GetTeamData } from "../redux/slices/teamSlice";
 const About = () => {
   const dispatch = useDispatch();
   const { team } = useSelector((state) => state.team);
+  const { testimonial } = useSelector((state) => state.testimonial);
 
   useEffect(() => {
     dispatch(GetTeamData());
   }, []);
 
-  const management = team && team.filter((team)=>team.tag.name === 'Management')
-  const _team = team && team.filter((team)=>team.tag.name === 'Team')
+  const management =
+    team && team.filter((team) => team.tag.name === "Management");
+  const _team = team && team.filter((team) => team.tag.name === "Team");
+
+  console.log(testimonial)
 
   return (
     <Box>
@@ -23,7 +27,7 @@ const About = () => {
       <AboutWhoWeAre />
       <Team person={management} title="Management" />
       <Team person={_team} title="Team" />
-      <Testimonial />
+      <Testimonial testimonials={testimonial && testimonial} />
     </Box>
   );
 };
