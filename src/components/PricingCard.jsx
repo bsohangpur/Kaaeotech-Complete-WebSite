@@ -2,7 +2,7 @@ import { Box, Flex, Text, Button, Stack, Icon, Link } from "@chakra-ui/react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 
 const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
-  
+
   return (
     <Box
       bg="white"
@@ -52,8 +52,8 @@ const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
         </Text>
       </Box>
       <Stack spacing={2} mb={4}>
-        {features.map(({ text, is_available }) => (
-          <Flex key={text} align="center">
+        {features.map(({ text, is_available }, index) => (
+          <Flex key={text + index} align="center">
             {is_available ? (
               <Icon as={FaCheck} color="green.500" />
             ) : (

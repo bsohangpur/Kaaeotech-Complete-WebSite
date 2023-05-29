@@ -41,7 +41,7 @@ const PortfolioCards = ({ project }) => {
         className="mySwiper2"
       >
         {project.images.map((image) => (
-          <SwiperSlide key={image}>
+          <SwiperSlide key={image.name}>
             <Image
               src={imageurl + image.image}
               alt={image.name}
@@ -62,7 +62,7 @@ const PortfolioCards = ({ project }) => {
         className="mySwiper"
       >
         {project.images.map((image) => (
-          <SwiperSlide key={image}>
+          <SwiperSlide key={image.name}>
             <Image
               src={imageurl + image.image}
               alt={image.name}

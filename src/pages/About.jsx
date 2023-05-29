@@ -19,8 +19,6 @@ const About = () => {
     team && team.filter((team) => team.tag.name === "Management");
   const _team = team && team.filter((team) => team.tag.name === "Team");
 
-  console.log(testimonial)
-
   return (
     <Box>
       <AboutHero />

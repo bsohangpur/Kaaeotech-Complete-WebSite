@@ -26,13 +26,22 @@ const CommentForm = ({ id }) => {
             )}
           </Field>
           <HStack>
-            <Avatar as={FaUserCircle} size="md" mr={2} />
+            <Avatar as={FaUserCircle} size={{ base: "sm", md: "md" }} mr={2} />
             <Field name="name">
               {({ field }) => (
-                <Input {...field} placeholder="Your name" w="100%" mr={2} />
+                <Input
+                  {...field}
+                  placeholder="Your name"
+                  w={{ base: "60%", md: "100%" }}
+                  mr={2}
+                />
               )}
             </Field>
-            <Button type="submit" colorScheme="purple">
+            <Button
+              type="submit"
+              size={{ base: "sm", md: "md" }}
+              colorScheme="purple"
+            >
               Comment
             </Button>
           </HStack>

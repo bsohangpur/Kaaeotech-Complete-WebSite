@@ -32,6 +32,7 @@ const TeamCards = ({ team }) => {
           src={team.image && team.image.image && imageurl + team.image.image}
           alt={team.image && team.image.name && team.image.name}
           fallbackSrc="https://via.placeholder.com/300x435"
+          
         />
         <Box p="6">
           <Heading textTransform="capitalize" as="h3" size="md">

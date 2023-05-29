@@ -7,7 +7,6 @@ import {
   Pricing,
   ServiceDetail,
 } from "../containers";
-import { pricingData } from "../data";
 import { useSelector } from "react-redux";
 
 const Home = () => {

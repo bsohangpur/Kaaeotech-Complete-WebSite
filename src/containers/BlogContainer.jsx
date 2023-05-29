@@ -15,7 +15,7 @@ const BlogContainer = ({blogs}) => {
       </Text>
       <Grid templateColumns={`repeat(${gridCols}, 1fr)`} gap={10}>
         {blogs.map((blog) => (
-          <BlogCard data={blog} />
+          <BlogCard key={blog.title} data={blog} />
         ))}
       </Grid>
     </Box>

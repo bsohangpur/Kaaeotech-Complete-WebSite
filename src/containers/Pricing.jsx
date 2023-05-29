@@ -50,7 +50,7 @@ const MobilePricing = ({ slice, data }) => {
     >
       {data
         .slice(0, slice)
-        .map(({ title, price, features, isPopular, ourPrice }) => (
+        .map(({ title, price, features, isPopular, our_price }) => (
           <SwiperSlide key={title}>
             <motion.div
               variants={pricingVariants}
@@ -61,10 +61,10 @@ const MobilePricing = ({ slice, data }) => {
             >
               <PricingCard
                 title={title}
-                price={price}
+                price={Number(price)}
                 features={features}
                 isPopular={isPopular}
-                ourPrice={ourPrice}
+                ourPrice={Number(our_price)}
               />
             </motion.div>
           </SwiperSlide>
@@ -80,7 +80,7 @@ const Pricing = ({ slice, data }) => {
     <Box id="pricing" py={4}>
       <Flex justify="center">
         {isMobileView ? (
-          <MobilePricing data={data && data} slice={data && slice} />
+          <MobilePricing data={data ? data : []} slice={data && slice} />
         ) : (
           <Stack direction={{ base: "column", md: "row" }} spacing={8}>
             {data &&
