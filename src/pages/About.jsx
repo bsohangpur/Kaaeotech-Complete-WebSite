@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Box } from "@chakra-ui/react";
 import { AboutHero, AboutWhoWeAre } from "../components";
 import { Team, Testimonial } from "../containers";
-// import { Team as team, Management } from "../data";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { GetTeamData } from "../redux/slices/teamSlice";
+import { GetTestimonialData } from "../redux/slices/testimonialSlice";
+import { FetchComponent } from "../utils";
 
 const About = () => {
-  const dispatch = useDispatch();
-  const { team } = useSelector((state) => state.team);
-  const { testimonial } = useSelector((state) => state.testimonial);
-
-  useEffect(() => {
-    dispatch(GetTeamData());
-  }, []);
+  const { team, isLoading } = useSelector((state) => state.team);
+  const { testimonial, isLoading: isloading } = useSelector(
+    (state) => state.testimonial
+  );
 
   const management =
     team && team.filter((team) => team.tag.name === "Management");
@@ -21,6 +19,8 @@ const About = () => {
 
   return (
     <Box>
+      <FetchComponent fetchFunction={GetTeamData()} loading={isLoading} />
+      <FetchComponent fetchFunction={GetTestimonialData()} loading={isloading} />
       <AboutHero />
       <AboutWhoWeAre />
       <Team person={management} title="Management" />

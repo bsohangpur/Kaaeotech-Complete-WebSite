@@ -4,6 +4,7 @@ const menuItems = [
   { label: "Pricing", to: "/pricing" },
   { label: "Service", to: "/service" },
   { label: "Portfolio", to: "/portfolio" },
+  { label: "Careers", to: "/career" },
   { label: "Blog", to: "/blog" },
 ];
 

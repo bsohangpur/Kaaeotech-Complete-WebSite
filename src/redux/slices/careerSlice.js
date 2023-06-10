@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const url = "https://api.kaaeo.com/api/careers/";
+// const url = "http://191.101.229.240:8000/api/careers/";
+// const url = "http://127.0.0.1:8000/api/careers/";
 
 const STATUS = Object.freeze({
   idle: "idle",

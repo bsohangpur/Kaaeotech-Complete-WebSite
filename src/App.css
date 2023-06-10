@@ -1,49 +1,61 @@
-*{
+* {
   scroll-behavior: smooth;
 }
 
 .swiper {
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .swiper-slide {
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .mySwiper2 {
-    height: 50%;
-    width: 100%;
-  }
-  
-  .mySwiper {
-    height: 20%;
-    box-sizing: border-box;
-    padding: 10px 0;
-  }
-  
-  .mySwiper .swiper-slide {
-    width: 25%;
-    height: 100%;
-    opacity: 0.4;
-  }
-  
-  .mySwiper .swiper-slide-thumb-active {
-    opacity: 1;
-  }
-  
-  .sanitizedContent h1{
-    font-size: 2em;
-    font-weight: 700;
-  }
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .sanitizedContent img{
-    margin: 10px 0px;
-  }
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
 
-  .sanitizedContent p{
-    font-size: 1.1em;
-  }
+.mySwiper2 {
+  height: 50%;
+  width: 100%;
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.sanitizedContent h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.sanitizedContent img {
+  margin: 10px 0px;
+}
+
+.sanitizedContent p {
+  font-size: 1.1em;
+}
+
+.css-13cymwt-control {
+  border-radius: 10px 0px 0px 10px !important;
+  border-color: inherit !important;
+  height: 40px !important;
+}
+
+.contact_phone_input {
+  border-radius: 0px !important;
+}
+
+

@@ -1,11 +1,9 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { PortfolioCards } from "../components";
-import { useSelector } from "react-redux";
 
-const PortfolioHero = ({ slice }) => {
+const PortfolioHero = ({ slice, portfolio }) => {
   const MotionBox = motion(Box);
-  const { portfolio } = useSelector((state) => state.portfolio);
 
   return (
     <Box id="portfolio" bg="gray.100" py={{ base: "10", md: "20" }}>

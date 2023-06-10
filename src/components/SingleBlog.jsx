@@ -7,7 +7,6 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { SanitizedTextView } from "../utils";
 import imageurl from "../utils/imageurl";
@@ -18,7 +17,6 @@ import { GetCommentData } from "../redux/slices/commentSlice";
 import Comment from "./Comment";
 
 const SingleBlog = ({ blog, similarBlogs }) => {
-  const MotionBox = motion(Box);
   const { id, title, image, text } = blog && blog;
   const { comment } = useSelector((state) => state.comment);
   const dispatch = useDispatch();
@@ -41,50 +39,23 @@ const SingleBlog = ({ blog, similarBlogs }) => {
         p={8}
       >
         <VStack spacing={8} align="flex-start">
-          <MotionBox
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <Box>
             <Heading as="h1">{title}</Heading>
             <Image my={4} src={imageurl + image} alt={title} />
             <SanitizedTextView content={text} />
-          </MotionBox>
-          <MotionBox
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            w="100%"
-          >
+          </Box>
+          <Box w="100%">
             <Text fontSize="2xl" fontWeight="bold" mb={4}>
               Comments
             </Text>
             <CommentForm id={blog_id} />
             <Comment comments={comment} />
-          </MotionBox>
+          </Box>
         </VStack>
         <VStack spacing={8} align="flex-start">
           {similarBlogs.map((blog, index) => (
-            <MotionBox
-              key={index}
-              as={Link}
-              to="/"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 + 1.5 }}
-              borderRadius="lg"
-              w="100%"
-            >
-              <MotionBox
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2 }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.1)",
-                  transition: { duration: 0.2 },
-                }}
-                className="w-full shadow-md rounded-lg p-4 flex flex-col gap-2 items-center"
-              >
+            <Box key={index} as={Link} to="/" borderRadius="lg" w="100%">
+              <Box className="w-full shadow-md rounded-lg p-4 flex flex-col gap-2 items-center">
                 <Image
                   src={blog.image}
                   fallbackSrc="https://via.placeholder.com/300x200"
@@ -95,8 +66,8 @@ const SingleBlog = ({ blog, similarBlogs }) => {
                   {blog.title}
                 </Heading>
                 <Text>{blog.summary}</Text>
-              </MotionBox>
-            </MotionBox>
+              </Box>
+            </Box>
           ))}
         </VStack>
       </Grid>

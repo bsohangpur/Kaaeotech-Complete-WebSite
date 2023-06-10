@@ -8,6 +8,7 @@ import ServiceDetail from "./ServiceDetail";
 import PrivacyPolicy from "./PrivacyPolicy";
 import FAQSection from './FAQSection';
 import BlogContainer from './BlogContainer';
+import CareerForm from './CareerForm';
 
 export {
   Pricing,
@@ -20,6 +21,6 @@ export {
   PrivacyPolicy,
   FAQSection,
   BlogContainer,
-  
+  CareerForm,
   
 };

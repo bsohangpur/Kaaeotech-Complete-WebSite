@@ -1,6 +1,6 @@
 import { Flex, Button, Link } from "@chakra-ui/react";
 import { FaPhone, FaEnvelope } from "react-icons/fa";
-import { BiWorld } from "react-icons/bi";
+import { GiRotaryPhone } from "react-icons/gi";
 import { motion } from "framer-motion";
 import {Link as link} from 'react-router-dom'
 
@@ -50,15 +50,15 @@ const PreNavbar = () => {
         kaaeotechsolutions@gmail.com
       </MotionButton>
       <MotionButton
-        as={link}
+        as={Link}
         variants={iconVariants}
         whileHover="hover"
-        leftIcon={<BiWorld />}
-        colorScheme="linkedin"
+        leftIcon={<GiRotaryPhone className="text-xl" />}
+        colorScheme="blue"
         variant="link"
-        to="/career"
+        href="tel:04040171429"
       >
-        We Are Hiring
+        04040171429
       </MotionButton>
     </Flex>
   );

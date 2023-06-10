@@ -1,6 +1,7 @@
-import { Box, Heading, Text, Image, Badge, Flex, Link } from "@chakra-ui/react";
+import { Box, Heading, Image, Badge, Flex, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import imageurl from "../utils/imageurl";
+import { CropText } from "../utils";
 
 const MotionBox = motion(Box);
 
@@ -9,8 +10,6 @@ const BlogCard = ({ data }) => {
 
   return (
     <MotionBox
-      as={Link}
-      href={`blog/${title}`}
       bg="white"
       boxShadow="md"
       p={8}
@@ -24,10 +23,19 @@ const BlogCard = ({ data }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <Image src={imageurl + image} alt={title} mb={4} borderRadius="md" />
-        <Heading as="h2" size="md" mb={2} fontWeight="bold">
-          {title}
-        </Heading>
+        <Box as={Link} href={`blog/${title}`}>
+          <Image
+            h={{ base: 250, md: 350, lg: 200 }}
+            w="100%"
+            src={imageurl + image}
+            alt={title}
+            mb={4}
+            borderRadius="md"
+          />
+          <Heading as="h2" size="md" mb={2} fontWeight="bold">
+            {title}
+          </Heading>
+        </Box>
         <Flex flexWrap="wrap" gap={2} mb={2}>
           {categories.map((category) => (
             <Badge key={category.id} colorScheme="purple">
@@ -36,9 +44,8 @@ const BlogCard = ({ data }) => {
           ))}
         </Flex>
 
-        <Text fontSize="lg" mb={4}>
-          {summary}.
-        </Text>
+        <CropText text={summary} />
+
         <Box d="flex" justifyContent="flex-end">
           {tags.map((tag) => (
             <Badge key={tag.id} colorScheme="green" mr={2}>

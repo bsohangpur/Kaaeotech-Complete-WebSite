@@ -24,6 +24,7 @@ const TeamCards = ({ team }) => {
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
+        maxW='300px'
         borderColor={borderColor[colorMode]}
         bg={bg[colorMode]}
         color={color[colorMode]}
@@ -38,8 +39,8 @@ const TeamCards = ({ team }) => {
           <Heading textTransform="capitalize" as="h3" size="md">
             {team.name}
           </Heading>
-          <Text mt="4" fontSize="sm">
-            {team.profession}
+          <Text mt="2" fontWeight="semibold" as="h4" fontSize="sm">
+            {team.specialty}.
           </Text>
           <Box mt="2" fontSize="sm">
             <CropText text={team.bio} />

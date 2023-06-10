@@ -3,7 +3,10 @@ import {
   Text,
   Input,
   Textarea,
-  Select,
+  InputGroup,
+  InputRightAddon,
+  Select as Selects,
+  Image,
   Button,
   useToast,
 } from "@chakra-ui/react";
@@ -14,6 +17,8 @@ import { serviceOptions } from "../data";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SendData } from "../redux/slices/contactSlice";
+import { country_tel_code } from "../data";
+import Select from "react-select";
 
 const ContactForm = () => {
   const [pricing, setPricing] = useState(0);
@@ -22,7 +27,20 @@ const ContactForm = () => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.contact);
+  const [countryCode, setCountryCode] = useState("+91");
+  const [countryFlag, setCountryFlag] = useState(
+    "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMEUwNDkwQzE3N0QxMUUyODY3Q0FBOTFCQzlGNjlDRiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowMEUwNDkwRDE3N0QxMUUyODY3Q0FBOTFCQzlGNjlDRiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwRTA0OTBBMTc3RDExRTI4NjdDQUE5MUJDOUY2OUNGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAwRTA0OTBCMTc3RDExRTI4NjdDQUE5MUJDOUY2OUNGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+OIHw6AAAAPlJREFUeNpi/D/T+D/DAAAmhgECoxYPf4sZ/wPBQFn8CUjzEqvh7cffDAtX32Xg4WZhYGJkZHj/8SdDTLAKg6QIGyn2fiY5qGdN38/A8OU5g5k2F4OxBicD59+3DHNm7CXZxyykKL548TGDmCgHg6mpMoObWz/Dr19/GHbvLmS4desZWE5fX5Y2Fv/794+BhYWR4e/ff0BLfwPxX4Y/f0BiTAz///+jbRy3te5gEBTgYrCyVgY65D/DuXOPGJ49/cBQW+9FUhyTbPGnt78Z9qx7wiAozMnAyMTI8OblVwYnfxkGIQk2ki0emOwk3MExWjuNWjy8LAYIMADBumJ9k9IhVwAAAABJRU5ErkJggg=="
+  );
 
+  const handleCountryCodeChange = (selectedOption) => {
+    setCountryCode(selectedOption.value.dial_code);
+    setCountryFlag(selectedOption.value.flag);
+  };
+
+  const options = country_tel_code.map((country, index) => ({
+    value: country,
+    label: country.dial_code,
+  }));
 
   const handlePlanChange = (event) => {
     const selectedOption = serviceOptions.find(
@@ -52,12 +70,13 @@ const ContactForm = () => {
   const onSubmit = (values, { setSubmitting }) => {
     const data = {
       name: values.name,
-      phone: values.phone,
+      phone: countryCode + values.phone,
       email: values.email,
       requirement: values.requirement,
       price: pricing,
       plan: values.plan,
     };
+
     dispatch(SendData(data));
     setSubmitting(false);
     setSubmit(true);
@@ -65,15 +84,15 @@ const ContactForm = () => {
 
   if (!isLoading) {
     toast({
-      title: "Message Submited",
+      title: "Message Submitted",
       position: "top",
       description:
-        "your responce has submited successfully we will contact you soon",
+        "your response has submitted successfully we will contact you soon",
       status: "success",
-      duration: 3000,
+      duration: 7000,
       isClosable: true,
     });
-    setTimeout(()=>navigation(0), 1000);
+    setTimeout(()=>navigation('/'), 1000);
   }
 
   return (
@@ -122,12 +141,32 @@ const ContactForm = () => {
                         <Text mb="2" fontWeight="semibold">
                           Phone
                         </Text>
-                        <Input
-                          type="tel"
-                          placeholder="Enter your phone number"
-                          {...field}
-                          isInvalid={form.errors.phone && form.touched.phone}
-                        />
+                        <InputGroup>
+                          <Select
+                            value={{ value: countryCode, label: countryCode }}
+                            onChange={handleCountryCodeChange}
+                            options={options}
+                            className=" w-48"
+                            id="contact_form_select"
+                            menuPlacement="top"
+                          />
+                          <Input
+                            type="tel"
+                            placeholder="Enter your phone number"
+                            className="contact_phone_input"
+                            {...field}
+                            isInvalid={form.errors.phone && form.touched.phone}
+                          />
+                          <InputRightAddon
+                            children={
+                              <Image
+                                src={`data:image/png;base64,${countryFlag}`}
+                                alt="Icon"
+                              />
+                            }
+                          />
+                        </InputGroup>
+
                         <ErrorMessage
                           name="phone"
                           component={Text}
@@ -164,7 +203,7 @@ const ContactForm = () => {
                         <Text mb="2" fontWeight="semibold">
                           Plan
                         </Text>
-                        <Select
+                        <Selects
                           placeholder="Select a plan"
                           {...field}
                           isInvalid={form.errors.plan && form.touched.plan}
@@ -178,7 +217,7 @@ const ContactForm = () => {
                               {option.label}
                             </option>
                           ))}
-                        </Select>
+                        </Selects>
                         <ErrorMessage
                           name="plan"
                           component={Text}

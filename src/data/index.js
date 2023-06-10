@@ -11,7 +11,8 @@ import privacyPolicy from './privacyPolicy';
 import faqData from './faqData';
 import serviceDetailData from './serviceDetailData';
 import blogData from './blogData';
-import icons from './icons'
+import icons from './icons';
+import country_tel_code from './country_tel_code';
 
 export {
   pricingData,
@@ -29,6 +30,6 @@ export {
   serviceDetailData,
   blogData,
   icons,
-  
+  country_tel_code,
 
 };

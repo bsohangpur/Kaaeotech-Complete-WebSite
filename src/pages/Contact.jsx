@@ -5,7 +5,9 @@ import { ContactHero, PrivacyPolicy } from "../containers";
 const Contact = () => {
   return (
     <Box>
-      <ContactHero />
+      <Box mt={12}>
+        <ContactHero />
+      </Box>
       <PrivacyPolicy/>
     </Box>
   );
