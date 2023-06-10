@@ -1,7 +1,15 @@
 import { Box, Flex, Text, Button, Stack, Icon, Link } from "@chakra-ui/react";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { Link as ReactLink } from "react-router-dom";
+import { setPlan } from "../redux/slices/serviceSlice";
 
 const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
+  const dispatch = useDispatch();
+
+  const handlePlan = (data) => {
+    dispatch(setPlan(data));
+  };
 
   return (
     <Box
@@ -63,14 +71,22 @@ const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
               {text}{" "}
               {text === "NO Domain" && (
                 <Link href="/" className=" cursor-pointer">
-                  (Purchace Here)
+                  (Purchase Here)
                 </Link>
               )}
             </Text>
           </Flex>
         ))}
       </Stack>
-      <Button colorScheme="teal" px={8}>
+      <Button
+        as={ReactLink}
+        to="/contact"
+        onClick={() =>
+          handlePlan({ label: title, value: title, price: ourPrice })
+        }
+        colorScheme="teal"
+        px={8}
+      >
         Select Plan
       </Button>
     </Box>
