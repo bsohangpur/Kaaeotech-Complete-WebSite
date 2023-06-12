@@ -1,3 +1,4 @@
+import { useToast } from "@chakra-ui/react";
 import { Box, Flex, Text, Button, Stack, Icon, Link } from "@chakra-ui/react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -6,9 +7,19 @@ import { setPlan } from "../redux/slices/serviceSlice";
 
 const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handlePlan = (data) => {
     dispatch(setPlan(data));
+
+    toast({
+      title: data.value + " Plan Selected",
+      description: "You have successfully selected a plan.",
+      status: "info",
+      position: "top-right",
+      duration: 5000,
+      isClosable: true,
+    });
   };
 
   return (

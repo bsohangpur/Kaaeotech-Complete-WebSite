@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// const url = "https://api.kaaeo.com/api/contacts/";
-const url = "http://127.0.0.1:8000/api/contacts/";
+const url = "https://api.kaaeo.com/api/contacts/";
+// const url = "http://127.0.0.1:8000/api/contacts/";
 
 const STATUS = Object.freeze({
   idle: "idle",

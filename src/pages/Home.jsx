@@ -28,7 +28,7 @@ const Home = () => {
       <Pricing slice={plans && 4} data={plans} />
       <AboutHero />
       <ServiceDetail link="service" service={services && services} />
-      <ContactHero />
+      <ContactHero isHome={true} />
       <PortfolioHero portfolio={portfolio} slice={3} />
     </Box>
   );

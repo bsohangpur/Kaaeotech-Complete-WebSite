@@ -3,7 +3,7 @@ import React from "react";
 import { ContactForm, ContactMap } from "../components";
 import { Heading } from "../constants";
 
-const ContactHero = () => (
+const ContactHero = ({ isHome }) => (
   <Box>
     <Heading title="Reach Us" />
     <Box
@@ -11,7 +11,7 @@ const ContactHero = () => (
       id="contact"
       className=" flex flex-wrap justify-center items-center my-8"
     >
-      <ContactForm />
+      <ContactForm isHome={isHome} />
       <ContactMap />
     </Box>
   </Box>

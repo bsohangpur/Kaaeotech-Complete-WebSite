@@ -30,11 +30,6 @@ const socialIcons = [
     href: "https://api.whatsapp.com/send?phone=919700836220",
   },
   {
-    icon: FaLinkedin,
-    colorScheme: "linkedin",
-    href: "https://www.linkedin.com/in/kaaeotech-solutions-202b2a279/",
-  },
-  {
     icon: FaEnvelope,
     colorScheme: "teal",
     href: "mailto:kaaeotechsolutions@gmail.com",
