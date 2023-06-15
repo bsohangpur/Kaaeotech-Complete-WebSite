@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Tilt Prism;
+  src: url(./assets/fonts/TiltPrism-Regular.ttf);
+}
+
 * {
   scroll-behavior: smooth;
 }
@@ -58,4 +63,15 @@
   border-radius: 0px !important;
 }
 
+.hero_heading {
+  font-family: Tilt Prism, cursive !important;
+}
 
+.hero_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

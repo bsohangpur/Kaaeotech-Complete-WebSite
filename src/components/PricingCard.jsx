@@ -4,6 +4,9 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { Link as ReactLink } from "react-router-dom";
 import { setPlan } from "../redux/slices/serviceSlice";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
   const dispatch = useDispatch();
@@ -23,14 +26,16 @@ const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
   };
 
   return (
-    <Box
+    <MotionBox
       bg="white"
       borderRadius="lg"
       shadow="lg"
+      borderWidth='2px'
       overflow="hidden"
       p={6}
       textAlign="center"
       position="relative"
+      whileHover={{ rotate: "5deg"  }}
     >
       {isPopular && (
         <Box
@@ -100,7 +105,7 @@ const PricingCard = ({ title, price, features, isPopular, ourPrice }) => {
       >
         Select Plan
       </Button>
-    </Box>
+    </MotionBox>
   );
 };
 

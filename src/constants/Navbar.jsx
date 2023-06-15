@@ -80,6 +80,7 @@ const Navbar = () => {
             >
               <Image
                 h={{ base: 8, lg: 12 }}
+                w="100%"
                 alt="kaaeotech solutions logo"
                 src={logo}
               />
@@ -92,7 +93,7 @@ const Navbar = () => {
 
           <Box
             className=" pt-12 flex justify-center w-[50%] fixed top-0 left-0 h-screen"
-            bg={isMobile && "blackAlpha.700"}
+            bg={isMobile && "blackAlpha.900"}
             zIndex={isOpen || isMobile ? "overlay" : "hide"}
             onClick={() => setIsMobile(false)}
           >
@@ -117,8 +118,9 @@ const Navbar = () => {
                       as={Link}
                       to={item.to}
                       variant="ghost"
-                      size='lg'
-                      colorScheme="whiteAlpha"
+                      size="lg"
+                      w='100%'
+                      _hover={{bg: 'gray.400', color: 'gray.900'}}
                       color="gray.50"
                       fontWeight="medium"
                       sx={{ textTransform: "uppercase" }}

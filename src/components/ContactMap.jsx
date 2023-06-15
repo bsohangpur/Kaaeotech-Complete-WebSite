@@ -26,6 +26,7 @@ const ContactMap = () => {
             borderRadius="lg"
             h="100%"
             bg="white"
+            borderWidth='2px'
             shadow="xl"
             px={4}
             py={5}

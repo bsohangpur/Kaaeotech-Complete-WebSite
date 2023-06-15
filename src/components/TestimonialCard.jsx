@@ -12,7 +12,7 @@ const TestimonialCard = ({ testimonial }) => {
         <Box
             p={8}
             mx={4}
-            borderWidth="1px"
+            borderWidth="2px"
             borderRadius="lg"
             borderColor={borderColor[colorMode]}
             bg={bg[colorMode]}

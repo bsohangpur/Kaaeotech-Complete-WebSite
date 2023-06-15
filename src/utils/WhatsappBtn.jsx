@@ -7,7 +7,7 @@ const MotionLink = motion(Link);
 
 const WhatsappBtn = () => {
   return (
-    <Box className=" fixed z-[1000] rounded-full bottom-4 right-4">
+    <Box className=" fixed z-[1000] rounded-full bottom-6 right-6">
       <MotionLink
         href="https://api.whatsapp.com/send?phone=919700836220"
         whileHover={{ scale: 1.2 }}
@@ -20,6 +20,7 @@ const WhatsappBtn = () => {
           colorScheme="whatsapp"
           borderRadius={999999}
           p={1.5}
+          title="whatsapp"
           size='lg'
           icon={<FaWhatsapp size='md' />}
         />

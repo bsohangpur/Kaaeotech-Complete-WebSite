@@ -20,11 +20,14 @@ import { useDispatch } from "react-redux";
 import { SendData } from "../redux/slices/careerSlice";
 import { country_tel_code } from "../data";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Full name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  phone: Yup.string().required("Phone number is required"),
+  phone: Yup.string()
+    .matches(/^[1-9]\d{9}$/, "Invalid phone number")
+    .required("Phone number is required"),
   position: Yup.string().required("Position is required"),
   location: Yup.string().required("Location is required"),
   experience: Yup.string().required("Experience is required"),
@@ -44,6 +47,7 @@ const validationSchema = Yup.object().shape({
 
 const CareerForm = () => {
   const toast = useToast();
+  const navigation = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const [countryCode, setCountryCode] = useState("+91");
@@ -82,6 +86,7 @@ const CareerForm = () => {
         isClosable: true,
       });
       resetForm();
+      navigation("/");
     } catch (error) {
       console.error(error);
       toast({
@@ -277,6 +282,7 @@ const CareerForm = () => {
               )}
             </Field>
             <Button
+              w="100%"
               type="submit"
               colorScheme="teal"
               size="lg"

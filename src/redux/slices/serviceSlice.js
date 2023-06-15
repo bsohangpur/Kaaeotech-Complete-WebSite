@@ -14,6 +14,7 @@ const serviceSlice = createSlice({
   initialState: {
     status: STATUS.loading,
     isLoading: true,
+    isSingleLoading: true,
     services: [],
     plan: {},
     isPlan: false,
@@ -25,6 +26,9 @@ const serviceSlice = createSlice({
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload;
+    },
+    setSingleLoading: (state, action) => {
+      state.isSingleLoading = action.payload;
     },
     setAllData: (state, action) => {
       state.services = action.payload;
@@ -59,9 +63,8 @@ export function GetSingleServiceData(title) {
     try {
       dispatch(setStatus(STATUS.loading));
       const res = await axios.get(`${url}?title=${title}`);
-      console.log(`${url}?title=${title}`);
       dispatch(setData(res.data));
-      dispatch(setLoading(false));
+      dispatch(setSingleLoading(false));
       dispatch(setStatus(STATUS.idle));
     } catch (e) {
       console.log(e);
@@ -71,6 +74,12 @@ export function GetSingleServiceData(title) {
   };
 }
 
-export const { setStatus, setLoading, setData, setAllData, setPlan } =
-  serviceSlice.actions;
+export const {
+  setStatus,
+  setLoading,
+  setSingleLoading,
+  setData,
+  setAllData,
+  setPlan,
+} = serviceSlice.actions;
 export default serviceSlice.reducer;

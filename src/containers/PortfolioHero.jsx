@@ -1,10 +1,7 @@
 import { Box, Heading } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { PortfolioCards } from "../components";
 
 const PortfolioHero = ({ slice, portfolio }) => {
-  const MotionBox = motion(Box);
-
   return (
     <Box id="portfolio" bg="gray.100" py={{ base: "10", md: "20" }}>
       <Box mx="auto" px={{ base: "6", md: "0" }}>
@@ -18,19 +15,14 @@ const PortfolioHero = ({ slice, portfolio }) => {
           Portfolio
         </Heading>
         <Box>
-          <MotionBox
-            className="flex flex-wrap justify-center gap-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
+          <Box className="flex flex-wrap justify-center gap-6">
             {portfolio &&
               portfolio
                 .slice(0, slice)
                 .map((project) => (
                   <PortfolioCards key={project.name} project={project} />
                 ))}
-          </MotionBox>
+          </Box>
         </Box>
       </Box>
     </Box>

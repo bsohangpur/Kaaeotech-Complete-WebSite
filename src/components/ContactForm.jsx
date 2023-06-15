@@ -1,6 +1,7 @@
 import {
   Box,
   Text,
+  FormLabel,
   Input,
   Textarea,
   InputGroup,
@@ -129,6 +130,7 @@ const ContactForm = ({ isHome }) => {
           bg="white"
           borderRadius="lg"
           boxShadow="lg"
+          borderWidth='2px'
           p={{ base: "6", md: "12" }}
           position="relative"
           overflow="hidden"
@@ -144,9 +146,9 @@ const ContactForm = ({ isHome }) => {
                   <Field name="name">
                     {({ field, form }) => (
                       <Box mb="4">
-                        <Text mb="2" fontWeight="semibold">
+                        <FormLabel mb="2" fontWeight="semibold">
                           Name
-                        </Text>
+                        </FormLabel>
                         <Input
                           type="text"
                           placeholder="Enter your name"
@@ -165,9 +167,9 @@ const ContactForm = ({ isHome }) => {
                   <Field name="phone">
                     {({ field, form }) => (
                       <Box mb="4">
-                        <Text mb="2" fontWeight="semibold">
+                        <FormLabel mb="2" fontWeight="semibold">
                           Phone
-                        </Text>
+                        </FormLabel>
                         <InputGroup>
                           <Select
                             value={{ value: countryCode, label: countryCode }}
@@ -206,9 +208,9 @@ const ContactForm = ({ isHome }) => {
                   <Field name="email">
                     {({ field, form }) => (
                       <Box mb="4">
-                        <Text mb="2" fontWeight="semibold">
+                        <FormLabel mb="2" fontWeight="semibold">
                           Email
-                        </Text>
+                        </FormLabel>
                         <Input
                           type="email"
                           placeholder="Enter your email address"
@@ -227,9 +229,9 @@ const ContactForm = ({ isHome }) => {
                   <Field name="plan">
                     {({ field, form }) => (
                       <Box mb="4">
-                        <Text mb="2" fontWeight="semibold">
+                        <FormLabel mb="2" fontWeight="semibold">
                           Plan
-                        </Text>
+                        </FormLabel>
                         <Selects
                           placeholder="Select Plan"
                           // value={planName}
@@ -258,9 +260,9 @@ const ContactForm = ({ isHome }) => {
                   <Field name="requirement">
                     {({ field, form }) => (
                       <Box mb="4">
-                        <Text mb="2" fontWeight="semibold">
+                        <FormLabel mb="2" fontWeight="semibold">
                           Requirement
-                        </Text>
+                        </FormLabel>
                         <Textarea
                           placeholder="Enter your requirement"
                           {...field}
@@ -278,9 +280,9 @@ const ContactForm = ({ isHome }) => {
                     )}
                   </Field>
                   <Box mb="4">
-                    <Text mb="2" fontWeight="semibold">
+                    <FormLabel mb="2" fontWeight="semibold">
                       Price
-                    </Text>
+                    </FormLabel>
                     <Input type="text" value={`₹${pricing}`} isReadOnly />
                   </Box>
                 </Box>

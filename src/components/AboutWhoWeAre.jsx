@@ -12,6 +12,7 @@ const Card = ({ detail }) => {
       bg="white"
       borderRadius="xl"
       boxShadow="lg"
+      borderWidth='2px'
       p="6"
       whileHover={{ y: -10 }}
       transition={{ duration: 0.2 }}

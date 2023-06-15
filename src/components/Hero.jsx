@@ -8,8 +8,37 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { hero_bg } from "../assets";
+import hero_bg_video from "../assets/video/edited/1080p.mp4";
+import { TextAnimation } from "../utils";
+import React from "react";
+
+const MotionBox = motion(Box);
 
 const Hero = () => {
+  const [mouseMove, setMouseMove] = React.useState({ x: 0, y: 0 });
+
+  // const video = document.getElementById("hero_video");
+  
+
+
+  React.useEffect(() => {
+    function handleMouseMove(e) {
+      console.log(e.clientX, e.clientY);
+      setMouseMove({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    }
+
+    const homeHero = document.getElementById("home_hero");
+
+    homeHero.addEventListener("mousemove", handleMouseMove);
+
+    return homeHero.removeEventListener("mousemove", handleMouseMove);
+  });
+
+  console.log(mouseMove);
+
   const heroVariants = {
     hidden: {
       opacity: 0,
@@ -19,17 +48,8 @@ const Hero = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 1,
         delay: 0.3,
-      },
-    },
-  };
-
-  const ctaButtonVariants = {
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.2,
       },
     },
   };
@@ -39,18 +59,35 @@ const Hero = () => {
       bgImage={`url(${hero_bg})`}
       bgSize="cover"
       bgPosition="center"
-      h='auto'
-      py={12}
+      h="auto"
+      py={10}
+      minH='100vh'
+      className=" flex justify-center items-center"
       position="relative"
+      id="home_hero"
     >
+      {/* <Box className="">
+        <video
+          autoPlay
+          muted
+          loop
+          id="hero_video"
+          playsInline
+          className="hero_video "
+        >
+          <source src={hero_bg_video} type="video/mp4" />
+        </video>
+      </Box> */}
       <Box
-        bg="rgba(23, 20, 100, 0.7)"
+        bg="rgba(20,20,20,0.2)"
         position="absolute"
         top={0}
         bottom={0}
         left={0}
         right={0}
       />
+
+      {/* <MotionBox className=" absolute w-16 h-16 bg-slate-400 rounded-full" /> */}
       <Flex
         direction="column"
         justify="center"
@@ -64,7 +101,7 @@ const Hero = () => {
           variants={heroVariants}
           initial="hidden"
           animate="visible"
-          className="text-white w-full text-center flex flex-col items-center"
+          className="text-gray-50 w-full text-center flex flex-col items-center"
         >
           <Heading
             as="h1"
@@ -73,12 +110,13 @@ const Hero = () => {
             mb={{ base: 4, md: 8 }}
             textShadow="1px 1px #000"
             zIndex={200}
+            className="hero_heading"
           >
-            Transform Your Business with Our Digital Solutions
+            <TextAnimation text="Transform Your Business with Our Digital Solutions" />
           </Heading>
-          <Text
+          {/* <Text
             fontSize={{ base: "lg", md: "xl" }}
-            maxW="800px"
+            maxW="900px"
             fontWeight="semibold"
             mb={{ base: 4, md: 8 }}
             textShadow="1px 1px #000"
@@ -94,12 +132,13 @@ const Hero = () => {
             experiences, our team of professionals is dedicated to delivering
             cutting-edge solutions that drive results. Partner with us and take
             your digital presence to the next level.
-          </Text>
+          </Text> */}
           <motion.div
             variants={heroVariants}
             initial="hidden"
             animate="visible"
             delay={0.5}
+            className=" absolute bottom-0 backdrop-blur-lg w-screen py-8 rounded-lg shadow-lg"
           >
             <ButtonGroup>
               <Button
@@ -126,6 +165,7 @@ const Hero = () => {
                   }
                 }}
                 colorScheme="linkedin"
+                
                 px={{ base: 8, md: 12 }}
                 mb={{ base: 4, md: 0 }}
               >

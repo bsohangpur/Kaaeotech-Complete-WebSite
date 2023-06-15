@@ -10,6 +10,8 @@ import { CropText } from "../utils";
 import { Image } from "@chakra-ui/image";
 import imageurl from "../utils/imageurl";
 
+const MotionBox = motion(Box);
+
 const TeamCards = ({ team }) => {
   const { colorMode } = useColorMode();
   const cardWidth = useBreakpointValue({ base: "100%", sm: "300px" });
@@ -21,31 +23,42 @@ const TeamCards = ({ team }) => {
     <motion.div whileHover={{ scale: 1.05 }}>
       <Box
         w={cardWidth}
-        borderWidth="1px"
+        borderWidth="2px"
         borderRadius="lg"
         overflow="hidden"
-        maxW='300px'
+        maxW="300px"
         borderColor={borderColor[colorMode]}
         bg={bg[colorMode]}
         color={color[colorMode]}
+        position="relative"
       >
         <Image
           src={team.image && team.image.image && imageurl + team.image.image}
           alt={team.image && team.image.name && team.image.name}
           fallbackSrc="https://via.placeholder.com/300x435"
-          
+          className=""
         />
-        <Box p="6">
+        <Box
+          className=" absolute z-10 bottom-0 left-0 w-full text-gray-50 backdrop-blur-xl"
+          p="6"
+        >
           <Heading textTransform="capitalize" as="h3" size="md">
             {team.name}
           </Heading>
           <Text mt="2" fontWeight="semibold" as="h4" fontSize="sm">
             {team.specialty}.
           </Text>
-          <Box mt="2" fontSize="sm">
-            <CropText text={team.bio} />
-          </Box>
         </Box>
+        <MotionBox
+          className=" absolute text-lg font-serif top-0 z-20 left-0 w-full flex items-center h-full text-gray-50 backdrop-blur-xl"
+          p="6"
+          fontSize="sm"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <CropText text={team.bio} />
+        </MotionBox>
       </Box>
     </motion.div>
   );

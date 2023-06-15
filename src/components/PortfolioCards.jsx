@@ -25,6 +25,7 @@ const PortfolioCards = ({ project }) => {
       w={{ base: "100%", md: "45%", lg: "30%" }}
       borderRadius="md"
       boxShadow="lg"
+      borderWidth='2px'
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >

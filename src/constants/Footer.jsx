@@ -60,7 +60,7 @@ const Footer = () => {
           <Text mb={4} w="80%">
             Content And Materials On Website Belong To KaaeoTech Solution™
           </Text>
-          <Flex gap={2}>
+          <Flex flexWrap="wrap" gap={{ base: 4, md: 2 }}>
             {socialIcons.map(({ icon: Icon, href, colorScheme }) => (
               <MotionLink
                 href={href}
@@ -117,7 +117,11 @@ const Footer = () => {
       </Flex>
       <Box bg="gray.700" py={4} textAlign="center">
         <Text fontSize="sm" color="white">
-          © {new Date().getFullYear()} <Link className=" font-semibold underline" to="/">KaeeoTech Solutions</Link>. All rights reserved.
+          © {new Date().getFullYear()}{" "}
+          <Link className=" font-semibold underline" to="/">
+            KaeeoTech Solutions
+          </Link>
+          . All rights reserved.
         </Text>
       </Box>
     </Box>

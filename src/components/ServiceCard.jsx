@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Button, Text, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
+import { CropText } from "../utils";
 
 const MotionBox = motion(Box);
 
@@ -10,7 +11,10 @@ const ServiceCard = ({ icon, title, description }) => {
       bg="white"
       borderRadius="xl"
       boxShadow="lg"
+      borderWidth='2px'
       p="6"
+      whileTap={{ scale: 0.9 }}
+      cursor="pointer"
       whileHover={{ y: -10 }}
       transition={{ duration: 0.2 }}
       w={{ base: "full", md: "30%" }}
@@ -22,7 +26,7 @@ const ServiceCard = ({ icon, title, description }) => {
           {title}
         </Heading>
       </Flex>
-      <Text minH={48}>{description}</Text>
+      <CropText text={description} />
       <Button
         as={Link}
         href={`/service/${title}`}
